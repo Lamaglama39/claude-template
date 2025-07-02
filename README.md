@@ -1,214 +1,438 @@
 # Claude Code テンプレート
 
 Claude Codeプロジェクト用のテンプレートファイル集です。
+ソフトウェア開発で決める必要がある要素を体系的に整理したテンプレートを提供します。
 
 ## 使用方法
 
+### パターン1: 手動カスタマイズ
 1. 新しいプロジェクトを開始する際に、このディレクトリのファイルをプロジェクトルートにコピー
 2. `CLAUDE.md`をプロジェクトに合わせてカスタマイズ
+3. 不要なセクションは削除、必要な項目は詳細化
+4. 開発チーム全員で内容を確認・更新
+
+### パターン2: Claude Codeにカスタマイズを依頼
+以下のプロンプト例を参考に、Claude Codeにテンプレートのカスタマイズを依頼できます。
+
+## Claude Codeへの依頼プロンプト例
+
+### 1. 要件が明確な場合のプロンプト
+
+#### 例1: Webアプリケーション（具体的要件あり）
+```
+CLAUDE.mdをNext.js + TypeScriptのEコマースサイト用にカスタマイズしてください。
+
+【プロジェクト概要】
+- プラットフォーム: Webアプリケーション
+- 技術スタック: Next.js 14, TypeScript, PostgreSQL, Stripe
+- 主要機能: 商品カタログ、ショッピングカート、決済、ユーザー管理
+- ターゲット: 中小企業向けオンラインショップ
+- 規模: 月間10万PV程度
+
+【具体的要求】
+- 決済はStripeを使用
+- 在庫管理機能が必要
+- SEO対応が重要
+- レスポンシブデザイン必須
+- 管理者画面も必要
+
+不要なセクションは削除し、プロジェクトに特化した内容に更新してください。
+```
+
+#### 例2: モバイルアプリ（React Native）
+```
+CLAUDE.mdをReact Nativeの健康管理アプリ用にカスタマイズしてください。
+
+【基本情報】
+- プラットフォーム: iOS/Android（React Native）
+- 主要機能: 歩数計測、食事記録、体重管理、データ可視化
+- ターゲット: 健康意識の高い20-40代
+- データ連携: Apple Health / Google Fit
+- 収益モデル: フリーミアム
+
+【技術要件】
+- オフライン機能必須
+- プッシュ通知対応
+- データ同期機能
+- プライバシー保護重視
+
+テンプレートの各セクションを上記要件に合わせて具体化してください。
+```
+
+### 2. 要件が曖昧な場合のヒアリング依頼プロンプト
+
+#### 例1: アイデア段階からのヒアリング
+```
+新しいアプリのアイデアがあるのですが、まだ具体的な要件が固まっていません。
+CLAUDE.mdをカスタマイズするために、必要な情報をヒアリングしてください。
+
+【現在決まっていること】
+- [簡単なアイデアや解決したい課題を記載]
+- [ターゲットユーザーの大まかなイメージ]
+
+【相談したいこと】
+- どのプラットフォームが適しているか
+- 必要な機能の整理
+- 技術選定のアドバイス
+- 開発規模の見積もり
+
+段階的にヒアリングしながら、最適なCLAUDE.mdを作成してください。
+```
+
+#### 例2: 業務課題解決からのアプローチ
+```
+社内の業務効率化のためのツールを作りたいのですが、要件整理から手伝ってください。
+
+【現状の課題】
+- [具体的な業務上の課題]
+- [現在の運用方法と問題点]
+
+【制約条件】
+- 予算: [概算予算があれば]
+- 期間: [希望リリース時期]
+- チーム: [開発メンバーの規模/スキル]
+
+ヒアリングを通じて要件を整理し、適切な技術選定とCLAUDE.mdのカスタマイズをお願いします。
+```
+
+### 3. 段階的カスタマイズのプロンプト
+
+#### 例: 段階的詳細化
+```
+CLAUDE.mdのカスタマイズを段階的に進めたいです。
+
+【フェーズ1】ビジネス要件の整理
+まずは「アプリケーション」セクションのビジネス要件部分から始めて、
+以下の点を整理してください：
+- ターゲットユーザーの詳細化
+- 解決する課題の明確化  
+- 主要機能の優先順位付け
+- 成功指標の設定
+
+【フェーズ2】技術要件の検討
+ビジネス要件が固まったら、技術選定と「システム」セクションの詳細化をお願いします。
+
+【フェーズ3】開発計画の策定
+最後に開発プロセスとタイムラインの計画を立ててください。
+
+各フェーズで一度確認を取りながら進めたいので、フェーズ1から開始してください。
+```
+
+### 4. 特定セクションのみの依頼プロンプト
+
+#### 例: セキュリティ要件特化
+```
+既存のCLAUDE.mdのセキュリティ関連部分を強化してください。
+
+【プロジェクト】金融系Webアプリケーション
+【現在の課題】セキュリティ要件が曖昧で、具体的な対策が不明
+
+【強化したいセクション】
+- システム > セキュリティ
+- アプリケーション > 非機能要件（セキュリティ関連）
+- コンプライアンス要件
+
+【参考情報】
+- 個人金融情報を扱う
+- PCI DSS準拠が必要
+- OWASP Top 10への対策必須
+
+セキュリティの専門的な観点から、具体的で実装可能な要件に詳細化してください。
+```
+
+### 5. 効果的な依頼のコツ
+
+#### プロンプト作成時のポイント
+- **具体的な情報を提供**: 曖昧な表現より具体的な要件や制約を明記
+- **優先順位を明確化**: 重要な機能や要件の優先度を示す
+- **制約条件を含める**: 予算、期間、技術制約等の現実的な制約
+- **段階的アプローチ**: 一度に全てではなく、段階的にカスタマイズを依頼
+
+#### ヒアリング時の準備
+- **現状分析**: 解決したい課題や改善したい業務プロセス
+- **ステークホルダー情報**: 関係者、意思決定者、エンドユーザー
+- **成功の定義**: プロジェクト完了時の理想的な状態
+
+#### フォローアップの依頼例
+```
+前回作成したCLAUDE.mdを基に、以下の点について追加で検討してください：
+
+【追加要件】
+- [新たに判明した要件]
+- [技術調査の結果]
+- [ステークホルダーからのフィードバック]
+
+【見直したい点】
+- [現在の設計で懸念がある部分]
+- [実装難易度が高そうな機能]
+
+必要に応じてCLAUDE.mdの該当セクションを更新してください。
+```
 
 ## ファイル構成
 
-- `CLAUDE.md` - Claude Code用プロジェクト指示ファイル
+- `CLAUDE.md` - Claude Code用プロジェクト指示ファイル（メインテンプレート）
 - `.gitignore` - 基本的なファイル除外設定
 
-## CLAUDE.mdカスタマイズガイド
+## CLAUDE.mdの構造
 
-### プラットフォーム別
+### 設計（3層構造）
+1. **モデル** - データ構造とアーキテクチャ
+2. **アプリケーション** - 機能仕様とビジネス要件
+3. **システム** - 技術実装と運用
 
-#### Webアプリケーション
+## プロジェクト開始時のチェックリスト
+
+### ビジネス要件の明確化
+- [ ] ターゲットユーザーの定義（ペルソナ、ユーザー層）
+- [ ] 解決する課題とビジネス価値の明確化
+- [ ] 成功指標（KPI）の設定
+- [ ] 競合分析と差別化要因
+- [ ] ビジネスモデルと収益化戦略
+
+### 技術要件の決定
+- [ ] プラットフォーム選択（Web/Mobile/Desktop/クロスプラットフォーム）
+- [ ] システムアーキテクチャの選択（モノリス/マイクロサービス/サーバーレス）
+- [ ] 技術スタックの決定（言語、フレームワーク、データベース）
+- [ ] 非機能要件の定義（パフォーマンス、スケーラビリティ、可用性）
+- [ ] セキュリティ・コンプライアンス要件
+
+### 開発体制の整備
+- [ ] チーム構成と役割分担
+- [ ] 開発プロセスの選択（アジャイル、スクラム）
+- [ ] 品質基準の設定（テスト、コードレビュー）
+- [ ] リスク管理計画
+- [ ] タイムラインとマイルストーン
+
+## プラットフォーム別カスタマイズガイド
+
+### Webアプリケーション
 ```typescript
-// モデル例
-interface WebApp {
-  routing: 'SPA' | 'MPA';
-  rendering: 'CSR' | 'SSR' | 'SSG';
-  responsive: boolean;
+// システム > 技術スタック例
+- フレームワーク: React 18 + TypeScript / Next.js
+- データベース: PostgreSQL + Prisma ORM
+- 認証: NextAuth.js / Auth0
+- スタイリング: Tailwind CSS / Styled Components
+- 状態管理: Zustand / Redux Toolkit
+- テスト: Jest + React Testing Library
+- デプロイ: Vercel / AWS
+```
+
+**重要な決定項目：**
+- SPA vs MPA vs SSR/SSG
+- SEO要件とクローラー対応
+- ブラウザ互換性範囲
+- アクセシビリティレベル（WCAG 2.1 AA）
+- レスポンシブデザイン戦略
+
+### モバイルアプリ
+```typescript
+// システム > 技術スタック例
+- プラットフォーム: React Native / Flutter / Native
+- 状態管理: Redux / Riverpod
+- ナビゲーション: React Navigation / Go Router
+- ローカルDB: SQLite / Realm
+- プッシュ通知: FCM / APNs
+- アナリティクス: Firebase Analytics
+```
+
+**重要な決定項目：**
+- ネイティブ vs クロスプラットフォーム
+- オフライン機能の要否
+- デバイス固有機能の活用範囲
+- ストア申請戦略
+- アプリ配布方法
+
+### デスクトップアプリケーション
+```typescript
+// システム > 技術スタック例
+- フレームワーク: Electron / Tauri / .NET MAUI
+- UI Framework: React + Electron / WinUI
+- パッケージング: electron-builder / MSI
+- 自動更新: electron-updater
+- システム統合: OS固有API
+```
+
+**重要な決定項目：**
+- OS統合レベル（ファイルアクセス、システム通知）
+- 配布方法（インストーラー、ポータブル）
+- 自動更新機能
+- セキュリティポリシー
+
+## 用途別カスタマイズ例
+
+### Eコマースアプリケーション
+```typescript
+// モデル > 主要エンティティ
+interface Product {
+  id: string;
+  name: string;
+  price: number;
+  inventory: number;
+  category: Category;
+  images: string[];
+  variants: ProductVariant[];
+}
+
+interface Order {
+  id: string;
+  userId: string;
+  items: OrderItem[];
+  status: 'pending' | 'confirmed' | 'shipped' | 'delivered';
+  payment: PaymentInfo;
+  shipping: ShippingInfo;
 }
 ```
-- 技術スタック: React/Vue/Angular + Node.js/Django/Rails
-- 考慮事項: SEO、パフォーマンス、アクセシビリティ、ブラウザ互換性
 
-#### モバイルアプリ
+**重要な決定項目：**
+- 決済システム（Stripe、PayPal、独自決済）
+- 在庫管理システム
+- 配送業者連携
+- 税計算・会計システム連携
+- レコメンデーション機能
+
+### SaaS業務ツール
 ```typescript
-interface MobileApp {
-  platform: 'iOS' | 'Android' | 'CrossPlatform';
-  framework: 'Native' | 'ReactNative' | 'Flutter' | 'Ionic';
+// モデル > テナント・権限管理
+interface Tenant {
+  id: string;
+  name: string;
+  plan: 'basic' | 'pro' | 'enterprise';
+  settings: TenantSettings;
+  users: User[];
+}
+
+interface Permission {
+  resource: string;
+  actions: ('create' | 'read' | 'update' | 'delete')[];
+  conditions?: Record<string, any>;
 }
 ```
-- 技術スタック: Swift/Kotlin、React Native、Flutter
-- 考慮事項: デバイス固有機能、パフォーマンス、ストア申請
 
-#### デスクトップアプリケーション
+**重要な決定項目：**
+- マルチテナント設計（DB分離レベル）
+- 権限・ロール管理システム
+- API制限・課金システム
+- データエクスポート機能
+- 法規制対応（GDPR、SOC2）
+
+### リアルタイム通信アプリ
 ```typescript
-interface DesktopApp {
-  platform: 'Windows' | 'macOS' | 'Linux' | 'CrossPlatform';
-  framework: 'Electron' | 'Tauri' | 'Native';
-}
+// システム > リアルタイム通信
+- WebSocket: Socket.io / native WebSocket
+- メッセージブローカー: Redis / RabbitMQ
+- プッシュ通知: FCM / WebPush
+- メディア配信: WebRTC / CDN
+- メッセージ暗号化: E2E暗号化
 ```
-- 技術スタック: Electron、Tauri、Qt、.NET
-- 考慮事項: OS統合、配布方法、セキュリティ
 
-### 用途・機能別
+**重要な決定項目：**
+- メッセージ配信保証レベル
+- 暗号化レベル（E2E、サーバー側）
+- メディア品質・圧縮設定
+- スケーラビリティ設計
+- モデレーション機能
 
-#### ビジネス・生産性ツール
-```typescript
-interface BusinessTool {
-  userManagement: boolean;
-  reporting: boolean;
-  integrations: string[];
-  compliance: string[];
-}
-```
-- 重要機能: 認証・認可、データエクスポート、API統合
-- 考慮事項: セキュリティ、スケーラビリティ、法規制対応
+## よくある設計決定ガイド
 
-#### SNS・コミュニケーション
-```typescript
-interface SocialApp {
-  realtime: boolean;
-  media: ('text' | 'image' | 'video' | 'audio')[];
-  moderation: boolean;
-}
-```
-- 重要機能: リアルタイム通信、メディア処理、モデレーション
-- 考慮事項: プライバシー、スケーラビリティ、コンテンツ管理
+### データベース選択
+| 要件 | 推奨 | 理由 |
+|------|------|------|
+| ACID特性が必要 | PostgreSQL, MySQL | トランザクション整合性 |
+| 大量データ・高速読込 | Redis, MongoDB | NoSQL、水平スケーリング |
+| 全文検索 | Elasticsearch | 高度な検索機能 |
+| リアルタイム | Redis, Firebase | 低レイテンシ |
 
-#### Eコマース
-```typescript
-interface EcommerceApp {
-  payment: string[];
-  inventory: boolean;
-  shipping: boolean;
-  analytics: boolean;
-}
-```
-- 重要機能: 決済処理、在庫管理、配送管理
-- 考慮事項: PCI DSS準拠、パフォーマンス、SEO
+### 認証・認可方式
+| 要件 | 推奨 | 理由 |
+|------|------|------|
+| 単純なWebアプリ | JWT + Cookie | 実装シンプル |
+| 企業向けSaaS | SAML, OIDC | SSO対応 |
+| モバイルアプリ | OAuth 2.0 + PKCE | セキュア |
+| マイクロサービス | OAuth 2.0 + API Gateway | サービス間連携 |
 
-#### 教育・学習アプリ
-```typescript
-interface EducationApp {
-  content: ('video' | 'quiz' | 'assignment' | 'forum')[];
-  progress: boolean;
-  certificate: boolean;
-}
-```
-- 重要機能: コンテンツ管理、進捗追跡、評価システム
-- 考慮事項: アクセシビリティ、オフライン対応
+### スケーリング戦略
+| トラフィック規模 | 推奨アーキテクチャ | 考慮事項 |
+|-----------------|-------------------|----------|
+| 小規模（～1万PV/月） | モノリス + 単一DB | シンプルな構成 |
+| 中規模（～100万PV/月） | ロードバランサー + レプリケーション | 読込性能向上 |
+| 大規模（100万PV/月～） | マイクロサービス + CDN | 水平スケーリング |
+| 超大規模 | サーバーレス + 分散DB | 自動スケーリング |
 
-#### 金融・決済アプリ
-```typescript
-interface FinanceApp {
-  transactions: boolean;
-  encryption: boolean;
-  compliance: ('PCI' | 'SOX' | 'GDPR')[];
-}
-```
-- 重要機能: セキュア決済、暗号化、監査ログ
-- 考慮事項: セキュリティ、法規制、可用性
+### セキュリティ要件レベル
+| レベル | 要件例 | 対策例 |
+|--------|--------|--------|
+| 基本 | 個人情報保護 | HTTPS、入力検証、ハッシュ化 |
+| 標準 | 企業データ保護 | 2FA、監査ログ、暗号化 |
+| 高 | 金融・医療データ | E2E暗号化、HSM、コンプライアンス |
+| 最高 | 国家機密レベル | ゼロトラスト、多層防御 |
 
-### 技術・開発者向け
+## カスタマイズ実例
 
-#### 開発ツール・IDE
-```typescript
-interface DevTool {
-  codeAnalysis: boolean;
-  debugging: boolean;
-  versionControl: boolean;
-  plugins: boolean;
-}
-```
-- 重要機能: シンタックスハイライト、デバッグ、拡張性
-- 考慮事項: パフォーマンス、プラグイン生態系
-
-#### 監視・分析ツール
-```typescript
-interface MonitoringTool {
-  metrics: string[];
-  alerting: boolean;
-  dashboard: boolean;
-  retention: number;
-}
-```
-- 重要機能: データ収集、アラート、可視化
-- 考慮事項: スケーラビリティ、データ保存期間
-
-### システム・インフラ
-
-#### セキュリティアプリ
-```typescript
-interface SecurityApp {
-  encryption: boolean;
-  authentication: '2FA' | 'MFA' | 'SSO';
-  audit: boolean;
-}
-```
-- 重要機能: 暗号化、多要素認証、監査ログ
-- 考慮事項: ゼロトラスト、脅威検知
-
-#### システム管理ツール
-```typescript
-interface SystemTool {
-  monitoring: boolean;
-  automation: boolean;
-  configuration: boolean;
-}
-```
-- 重要機能: リソース監視、自動化、設定管理
-- 考慮事項: 可用性、スケーラビリティ
-
-### 特定業界向け
-
-#### 医療・ヘルスケア
-```typescript
-interface HealthcareApp {
-  patientData: boolean;
-  compliance: ('HIPAA' | 'GDPR')[];
-  integration: ('EHR' | 'FHIR')[];
-}
-```
-- 重要機能: 患者データ管理、医療機器連携
-- 考慮事項: HIPAA準拠、データセキュリティ
-
-#### 不動産アプリ
-```typescript
-interface RealEstateApp {
-  listings: boolean;
-  maps: boolean;
-  mortgage: boolean;
-  virtual: boolean;
-}
-```
-- 重要機能: 物件検索、地図連携、ローン計算
-- 考慮事項: 地理情報、画像処理
-
-## カスタマイズ例
-
-### React Webアプリの場合
+### React Webアプリ（Eコマース）
 ```bash
 # システム > 開発環境
 npm install
-npm run dev
-npm test
-npm run build
+npm run dev          # 開発サーバー
+npm test            # Jest + RTL
+npm run build       # プロダクションビルド
+npm run type-check  # TypeScript型チェック
 
 # システム > 技術スタック
-- フレームワーク: React 18 + TypeScript
-- データベース: PostgreSQL
-- 認証: NextAuth.js
+- フレームワーク: Next.js 14 (App Router)
+- データベース: PostgreSQL + Prisma
+- 認証: NextAuth.js + OAuth
+- 決済: Stripe
 - スタイリング: Tailwind CSS
+- 画像管理: Cloudinary
+- デプロイ: Vercel
 ```
 
-### モバイルアプリの場合
+### React Native モバイルアプリ
 ```bash
 # システム > 開発環境
 npx react-native start
 npx react-native run-ios
 npx react-native run-android
 npm test
+npm run type-check
 
 # システム > 技術スタック
-- フレームワーク: React Native
-- 状態管理: Redux Toolkit
-- ナビゲーション: React Navigation
+- フレームワーク: React Native 0.73
+- 状態管理: Redux Toolkit + RTK Query
+- ナビゲーション: React Navigation 6
+- ローカルDB: WatermelonDB
+- プッシュ通知: React Native Firebase
 ```
+
+## 開発フェーズ別チェックリスト
+
+### 設計フェーズ
+- [ ] ビジネス要件の文書化
+- [ ] 技術選定の完了
+- [ ] アーキテクチャ設計
+- [ ] データモデル設計
+- [ ] API設計
+- [ ] セキュリティ設計
+
+### 開発フェーズ
+- [ ] 開発環境構築
+- [ ] CI/CD設定
+- [ ] テスト環境構築
+- [ ] 品質ゲート設定
+- [ ] セキュリティテスト設定
+
+### リリースフェーズ
+- [ ] 本番環境構築
+- [ ] 監視・アラート設定
+- [ ] バックアップ・復旧テスト
+- [ ] パフォーマンステスト
+- [ ] セキュリティ監査
+- [ ] 運用手順書作成
+
+## 参考リソース
+
+- [Claudeのメモリを管理する](https://docs.anthropic.com/ja/docs/claude-code/memory)
+- [architecture-decision-record](https://github.com/joelparkerhenderson/architecture-decision-record)
+- [Twelve-Factor App](https://12factor.net/ja/)
+- [system-design-primer](https://github.com/donnemartin/system-design-primer)
